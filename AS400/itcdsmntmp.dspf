@@ -1,0 +1,61 @@
+     A*%%TS  SD  20171109  154230  DDSITCACP   REL-V7R2M0  5770-WDS
+     A*%%EC
+     A                                      DSPSIZ(24 80 *DS3)
+     A                                      CF03(03 'SALIR MENU')
+     A          R MENU
+     A*%%TS  SD  20171109  154230  DDSITCACP   REL-V7R2M0  5770-WDS
+     A                                  3 69DATE
+     A                                      EDTCDE(Y)
+     A                                      COLOR(WHT)
+     A                                  4 69TIME
+     A                                  5  3'__________________________________-
+     A                                      ___________________________________-
+     A                                      ________'
+     A                                      COLOR(WHT)
+     A                                  8 11'Mantenimiento general para cobro d-
+     A                                      e comisiones'
+     A                                      COLOR(WHT)
+     A                                  9 11'Consulta exoneracion de un cliente'
+     A                                      COLOR(WHT)
+     A                                 10 11'Consulta exoneracion por planes de-
+     A                                       cuentas'
+     A                                      COLOR(WHT)
+     A                                 11 11'^PS! Cobro de Comisiones por Clase'
+     A                                      COLOR(WHT)
+     A                                 12 11'ITC - Mantenimiento parámetros de -
+     A                                      Comisión'
+     A                                      COLOR(WHT)
+     A                                 20  2'__________________________________-
+     A                                      ___________________________________-
+     A                                      _________'
+     A                                      COLOR(WHT)
+     A            OPC2           1Y 0B  8  8EDTCDE(Z)
+     A            OPC3           1Y 0B  9  8EDTCDE(Z)
+     A            OPC4           1Y 0B 10  8EDTCDE(Z)
+     A            OPC5           1Y 0B 11  8EDTCDE(Z)
+     A            OPC6           1Y 0B 12  8EDTCDE(Z)
+     A                                 17  6'Seleccionar'
+     A                                      COLOR(WHT)
+     A                                 17 19'1'
+     A                                 22  6'F3 ='
+     A                                      COLOR(WHT)
+     A                                 22 11'Salir'
+     A                                 22 20'Intro ='
+     A                                      COLOR(WHT)
+     A                                 22 28'Continuar'
+     A                                  3 20'MENU PARAMETRIZACION COMISIONES TE-
+     A                                      MPORALES'
+     A                                      COLOR(BLU)
+     A                                  3  3USER
+     A          R CANAL
+     A*%%TS  SD  20171109  135506  DDSITCACP   REL-V7R2M0  5770-WDS
+     A                                      WINDOW(10 35 10 30)
+     A                                      CF12(12 'Cancelar')
+     A                                      OVERLAY
+     A                                      WDWBORDER((*COLOR WHT) (*DSPATR RI)-
+     A                                       (*CHAR '        '))
+     A                                  2  2'Ingresar'
+     A                                  2 11'Canal'
+     A            CANAL          3A  I  5  4CHECK(ME)
+     A                                  9  2'F12 = Cancelar'
+     A                                      COLOR(BLU)

@@ -1,0 +1,61 @@
+/*PROGRAMA: MENU PARA PARAMETRIZACION DE COMISICONES ITC   */
+/*          SOBRE ARCHIVOS TEMPORALES                      */
+/*SOPORTE Y MANTENIMIENTO DE APLICACIONES CORPORATIVAS     */
+/*AUTOR: ANDRES CUARTAS - ACCENTURE - NOVIEMBRE 2017       */
+/*cualquier cosa   */
+
+PGM
+
+/*DECLARACION DE VARIABLES Y ARCHIVOS                      */
+             DCLF       FILE(ITCDSMNTMP)
+/*LLAMADO A PROGRAMA PCC PARA REALIZAR EL OVERRIDE         */
+             CALL       PGM(PCCOLSTOVR) PARM('ITCOMENTMP')
+
+/*CICLO PARA EL MENU TEMPORAL PARAMETRIZACION              */
+INICIO:
+             SNDRCVF    RCDFMT(MENU)
+
+             IF COND(&OPC2 *EQ 1) THEN(DO)
+             CALL       PGM(ITCRTBGRA)
+             CHGVAR     VAR(&OPC2) VALUE(0)
+             GOTO INICIO
+             ENDDO
+
+             IF COND(&OPC3 *EQ 1) THEN(DO)
+             SNDRCVF    RCDFMT(CANAL)
+              IF COND(&CANAL *NE ' ') THEN(DO)
+                 CALL       PGM(ITCRCEXDOC) PARM(&CANAL)
+              ENDDO
+             CHGVAR     VAR(&OPC3) VALUE(0)
+             GOTO INICIO
+             ENDDO
+
+             IF COND(&OPC4 *EQ 1) THEN(DO)
+             SNDRCVF    RCDFMT(CANAL)
+              IF COND(&CANAL *NE ' ') THEN(DO)
+               CALL       PGM(ITCRCPLAN) PARM(&CANAL)
+              ENDDO
+             CHGVAR     VAR(&OPC4) VALUE(0)
+             GOTO INICIO
+             ENDDO
+
+             IF COND(&OPC5 *EQ 1) THEN(DO)
+             SNDRCVF    RCDFMT(CANAL)
+               IF COND(&OPC4 *EQ 1) THEN(DO)
+                CALL       PGM(ITCRCMCLA) PARM(&CANAL)
+               ENDDO
+             GOTO INICIO
+             ENDDO
+
+             IF COND(&OPC6 *EQ 1) THEN(DO)
+             CALL       PGM(ITCRMNTCPL)
+             CHGVAR     VAR(&OPC6) VALUE(0)
+             GOTO INICIO
+             ENDDO
+
+             IF COND(&IN03 = '1') THEN(DO)
+             GOTO FIN
+             ENDDO
+ FIN:
+             DLTOVR     FILE(*ALL) LVL(*JOB)
+ ENDPGM
