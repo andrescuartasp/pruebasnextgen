@@ -4,7 +4,8 @@
 /*AUTOR: ANDRES CUARTAS - ACCENTURE -  NOVIEMBRE 2017     */
 
       PGM
-
+ /* cambio *7
+ 
 /*DECLARACION DE VARIABLES Y ARCHIVOS                     */
 
              DCL        VAR(&NAMEFIN) TYPE(*CHAR) LEN(10)
